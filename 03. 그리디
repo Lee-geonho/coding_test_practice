@@ -1,0 +1,64 @@
+# 큰 수의 법칙 알고리즘 
+
+N,M,K = 5,8,3
+a = [2,4,5,4,6]
+b = sorted(a)
+n = len(b)
+first = b[n-1]
+second = b[n-2]
+s = 0
+
+for i in range(M):
+    if (i+1) % (K+1) == 0:
+        s = s + second
+    else:
+        s = s + first
+        
+print(s)   
+
+# 1이 될때까지
+n,k = map(int, input().split())
+cnt = 0
+
+while True:
+    if n == 1:
+        break
+    else:
+        if n % k == 0:
+            n = n / k
+            cnt += 1
+        else:
+            n -= 1
+            cnt += 1
+print(cnt)
+
+# 1이 될때까지 (method2)
+n,k = map(int, input().split())
+cnt = 0
+
+while True:
+    target = (n // k) * k
+    result += (n - target)
+    n = target
+    if n < k:
+        break
+    result += 1
+    n //= k
+
+result += (n-1)
+print(result)
+
+
+# 숫자 카드 게임
+n, m = map(int, input().split())
+result = 0
+
+for i in range(n):
+    data = list(map(int, input().split()))
+    min_value = min(data)
+    result = max(result, min_value)
+print(result)
+
+
+
+
